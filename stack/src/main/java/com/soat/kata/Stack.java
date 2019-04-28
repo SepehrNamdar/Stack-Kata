@@ -24,11 +24,8 @@ public class Stack {
         if(stackLimit == 0) {
             throw new StackLimitPassedException();
         }
-        if(size == 0) {
-            elements.add(size, element);
-        } else {
-            elements.add(size - 1, element);
-        }
+        int index = size;
+        elements.add(index - size, element);
         size++;
     }
 
@@ -53,5 +50,9 @@ public class Stack {
 
     public List<Integer> getElements() {
         return elements;
+    }
+
+    public int find(int element) {
+        return elements.indexOf(element);
     }
 }

@@ -2,9 +2,6 @@ import com.soat.kata.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
@@ -67,12 +64,34 @@ public class StackShould {
 
         assertThat(stack.top()).isEqualTo(1);
     }
+
     @Test
-    public void has_respectively_element_two_nd_one_on_top_when_pushed() {
+    public void has_respectively_element_two_and_one_on_top_when_pushed() {
         stack.push(1);
         assertThat(stack.top()).isEqualTo(1);
 
         stack.push(2);
+        assertThat(stack.top()).isEqualTo(2);
+
+        stack.pop();
+        assertThat(stack.top()).isEqualTo(1);
+
+        stack.pop();
+        assertThat(stack.isEmpty());
+    }
+
+    @Test
+    public void has_respectively_element_three_and_two_and_one_on_top_when_pushed() {
+        stack.push(1);
+        assertThat(stack.top()).isEqualTo(1);
+
+        stack.push(2);
+        assertThat(stack.top()).isEqualTo(2);
+
+        stack.push(3);
+        assertThat(stack.top()).isEqualTo(3);
+
+        stack.pop();
         assertThat(stack.top()).isEqualTo(2);
 
         stack.pop();
@@ -110,7 +129,16 @@ public class StackShould {
         assertThat(stack.getElements()).containsExactly(2, 1);
     }
 
-    // FIXME : What if I do 3 push and 3 pop ?
+    @Test
+    public void be_able_to_find_index_of_an_element() {
+        stack.push(1);
+        stack.push(2);
+        stack.push(5);
+
+        assertThat(stack.find(1)).isEqualTo(2);
+        assertThat(stack.find(2)).isEqualTo(1);
+        assertThat(stack.find(5)).isEqualTo(0);
+    }
 
     private int stackSize() {
         return stack.getSize();

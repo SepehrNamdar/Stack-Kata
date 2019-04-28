@@ -11,6 +11,8 @@ Voici les primitives communément utilisées pour manipuler des piles. Il n'exis
  - « La pile est-elle vide ? » : renvoie vrai si la pile est vide, faux sinon.
  - « Nombre d'éléments de la pile » : renvoie le nombre d'éléments dans la pile.
  - « Quel est l'élément de tête ? » : renvoie l'élément de tête sans le dépiler. Le terme anglais correspondant est _peek_ ou _top_.
+
+Extra use cases :
  - « Vider la liste » : dépiler tous les éléments. Le terme anglais correspondant est _clear_.
  - « Dupliquer l'élément de tête » et « échanger les deux premiers éléments » : existe sur les calculatrices fonctionnant en notation polonaise inverse. Les termes anglais correspondants sont _dup_ et _swap_ respectivement.
 
@@ -31,3 +33,4 @@ Here are the tests that Uncle Bob lays out in his screencast.
  - With zero capacity stack, top throws empty.
  - Given stack with one two pushed, find one and two.
  - Given a stack with no two, find two returns null.
+ - Elements should be unique
