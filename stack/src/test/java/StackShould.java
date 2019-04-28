@@ -85,6 +85,15 @@ public class StackShould {
     }
 
     @Test
+    public void throw_stack_is_empty_exception_when_top_given_an_empty_stack() {
+        stack.push(1);
+        stack.pop();
+        
+        assertThat(stack.isEmpty());
+        assertThatExceptionOfType(StackIsEmptyException.class).isThrownBy(stack::top);
+    }
+
+    @Test
     public void throw_stack_is_empty_exception_when_top_given_zero_capacity_stack() {
         Stack stack = new Stack(0);
         assertThatExceptionOfType(StackIsEmptyException.class).isThrownBy(stack::top);

@@ -45,7 +45,7 @@ public class Stack {
     }
 
     public int top() {
-        if(stackLimit == 0) {
+        if(stackLimit == 0 || isEmpty()) {
             throw new StackIsEmptyException();
         }
         return elements.get(0);
