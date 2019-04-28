@@ -20,6 +20,9 @@ public class Stack {
     }
 
     public void pop() {
+        if(stackLimit == 0) {
+            throw new SteckUnderflowException();
+        }
         size--;
     }
 }

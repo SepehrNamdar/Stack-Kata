@@ -1,5 +1,6 @@
 import com.soat.kata.Stack;
 import com.soat.kata.StackLimitPassedException;
+import com.soat.kata.SteckUnderflowException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,6 +51,15 @@ public class StackShould {
         // When
         assertThatExceptionOfType(StackLimitPassedException.class)
                 .isThrownBy(() -> { stack.push(1); });
+    }
+
+    @Test
+    public void throw_stack_underflow_exception_when_popped_passed_limit() {
+        // Given
+        Stack stack = new Stack(0);
+
+        // When
+        assertThatExceptionOfType(SteckUnderflowException.class).isThrownBy(stack::pop);
     }
 
     private int stackSize() {
