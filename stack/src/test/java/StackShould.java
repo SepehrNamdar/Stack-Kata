@@ -9,8 +9,6 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class StackShould {
 
-    private static final int DEFAULT_STACK_SIZE_WHEN_CREATED = 0;
-
     private Stack stack;
 
     @Before
@@ -20,7 +18,7 @@ public class StackShould {
 
     @Test
     public void be_empty_when_created() {
-        assertThat(stackSize()).isEqualTo(DEFAULT_STACK_SIZE_WHEN_CREATED);
+        assertThat(stack.isEmpty()).isTrue();
     }
 
     @Test
@@ -35,7 +33,7 @@ public class StackShould {
         stack.push(1);
         stack.pop();
 
-        assertThat(stackSize()).isEqualTo(DEFAULT_STACK_SIZE_WHEN_CREATED);
+        assertThat(stack.isEmpty()).isTrue();
     }
 
     @Test
