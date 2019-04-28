@@ -30,4 +30,14 @@ public class StackShould {
         // Then
         assertThat(stack.getSize()).isEqualTo(ONE);
     }
+
+    @Test
+    public void has_a_size_of_zero_after_one_push_and_one_pop() {
+        // When
+        stack.push(1);
+        stack.pop();
+
+        // Then
+        assertThat(stack.getSize()).isEqualTo(DEFAULT_STACK_SIZE_WHEN_CREATED);
+    }
 }
