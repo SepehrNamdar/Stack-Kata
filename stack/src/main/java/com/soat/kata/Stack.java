@@ -50,4 +50,8 @@ public class Stack {
         }
         return elements.get(0);
     }
+
+    public List<Integer> getElements() {
+        return elements;
+    }
 }

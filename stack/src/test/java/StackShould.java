@@ -2,6 +2,9 @@ import com.soat.kata.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
@@ -88,7 +91,7 @@ public class StackShould {
     public void throw_stack_is_empty_exception_when_top_given_an_empty_stack() {
         stack.push(1);
         stack.pop();
-        
+
         assertThat(stack.isEmpty());
         assertThatExceptionOfType(StackIsEmptyException.class).isThrownBy(stack::top);
     }
@@ -97,6 +100,14 @@ public class StackShould {
     public void throw_stack_is_empty_exception_when_top_given_zero_capacity_stack() {
         Stack stack = new Stack(0);
         assertThatExceptionOfType(StackIsEmptyException.class).isThrownBy(stack::top);
+    }
+
+    @Test
+    public void list_elements_in_correct_order() {
+        stack.push(1);
+        stack.push(2);
+
+        assertThat(stack.getElements()).containsExactly(2, 1);
     }
 
     // FIXME : What if I do 3 push and 3 pop ?
