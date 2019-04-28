@@ -1,7 +1,4 @@
-import com.soat.kata.IllegalCapacityException;
-import com.soat.kata.Stack;
-import com.soat.kata.StackLimitPassedException;
-import com.soat.kata.SteckUnderflowException;
+import com.soat.kata.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -87,7 +84,11 @@ public class StackShould {
         assertThatExceptionOfType(IllegalCapacityException.class).isThrownBy(() -> { new Stack(-1); });
     }
 
-    // FIXME : What if I do stack.top() with an empty stack ?
+    @Test
+    public void throw_stack_is_empty_exception_when_top_given_an_empty_stack() {
+        Stack stack = new Stack(0);
+        assertThatExceptionOfType(StackIsEmptyException.class).isThrownBy(stack::top);
+    }
 
     // FIXME : What if I do 3 push and 3 pop ?
 
