@@ -2,12 +2,20 @@ package com.soat.kata;
 
 public class Stack {
     private int size = 0;
+    private int stackLimit;
+
+    public Stack(int stackLimit) {
+        this.stackLimit = stackLimit;
+    }
 
     public int getSize() {
         return size;
     }
 
     public void push(int element) {
+        if(stackLimit == 0) {
+            throw new StackLimitPassedException();
+        }
         size++;
     }
 
