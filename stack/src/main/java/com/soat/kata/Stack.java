@@ -52,7 +52,8 @@ public class Stack {
         return elements;
     }
 
-    public int find(int element) {
-        return elements.indexOf(element);
+    public Integer find(int element) {
+        int indexOfElement = elements.indexOf(element);
+        return indexOfElement == -1 ? null : indexOfElement;
     }
 }

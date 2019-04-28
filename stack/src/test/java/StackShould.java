@@ -140,6 +140,11 @@ public class StackShould {
         assertThat(stack.find(5)).isEqualTo(0);
     }
 
+    @Test
+    public void return_null_when_an_element_does_not_exist() {
+        assertThat(stack.find(1)).isNull();
+    }
+
     private int stackSize() {
         return stack.getSize();
     }
