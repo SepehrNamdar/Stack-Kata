@@ -19,7 +19,7 @@ public class StackShould {
 
     @Test
     public void be_empty_when_created() {
-        assertThat(stack.getSize()).isEqualTo(DEFAULT_STACK_SIZE_WHEN_CREATED);
+        assertThat(stackSize()).isEqualTo(DEFAULT_STACK_SIZE_WHEN_CREATED);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class StackShould {
         stack.push(1);
 
         // Then
-        assertThat(stack.getSize()).isEqualTo(ONE);
+        assertThat(stackSize()).isEqualTo(ONE);
     }
 
     @Test
@@ -38,6 +38,10 @@ public class StackShould {
         stack.pop();
 
         // Then
-        assertThat(stack.getSize()).isEqualTo(DEFAULT_STACK_SIZE_WHEN_CREATED);
+        assertThat(stackSize()).isEqualTo(DEFAULT_STACK_SIZE_WHEN_CREATED);
+    }
+
+    private int stackSize() {
+        return stack.getSize();
     }
 }
