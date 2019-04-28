@@ -1,15 +1,16 @@
 package com.soat.kata;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Stack {
     private int size = 0;
     private int stackLimit;
-    private int[] elements;
+    private List<Integer> elements;
 
     public Stack(int stackLimit) {
         this.stackLimit = stackLimit;
-        elements = new int[stackLimit];
+        elements = new ArrayList<>();
     }
 
     public int getSize() {
@@ -20,7 +21,11 @@ public class Stack {
         if(stackLimit == 0) {
             throw new StackLimitPassedException();
         }
-        elements[size] = element;
+        if(size == 0) {
+            elements.add(size, element);
+        } else {
+            elements.add(size - 1, element);
+        }
         size++;
     }
 
@@ -28,6 +33,7 @@ public class Stack {
         if(stackLimit == 0) {
             throw new SteckUnderflowException();
         }
+        elements.remove(0);
         size--;
     }
 
@@ -36,6 +42,6 @@ public class Stack {
     }
 
     public int top() {
-        return elements[0];
+        return elements.get(0);
     }
 }
