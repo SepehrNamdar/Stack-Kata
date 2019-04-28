@@ -60,6 +60,13 @@ public class StackShould {
         assertThat(stack.getSize()).isEqualTo(1);
     }
 
+    @Test
+    public void has_element_one_on_top_when_pushed() {
+        stack.push(1);
+
+        assertThat(stack.top()).isEqualTo(1);
+    }
+
     private int stackSize() {
         return stack.getSize();
     }

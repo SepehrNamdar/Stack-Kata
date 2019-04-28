@@ -1,11 +1,15 @@
 package com.soat.kata;
 
+import java.util.List;
+
 public class Stack {
     private int size = 0;
     private int stackLimit;
+    private int[] elements;
 
     public Stack(int stackLimit) {
         this.stackLimit = stackLimit;
+        elements = new int[stackLimit];
     }
 
     public int getSize() {
@@ -16,6 +20,7 @@ public class Stack {
         if(stackLimit == 0) {
             throw new StackLimitPassedException();
         }
+        elements[size] = element;
         size++;
     }
 
@@ -28,5 +33,9 @@ public class Stack {
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    public int top() {
+        return elements[0];
     }
 }
