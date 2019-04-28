@@ -15,7 +15,6 @@ public class StackShould {
 
     @Before
     public void init() {
-        // Given
         stack  = new Stack(5);
     }
 
@@ -26,40 +25,41 @@ public class StackShould {
 
     @Test
     public void has_a_size_of_one_after_one_push() {
-        // When
         stack.push(1);
 
-        // Then
         assertThat(stackSize()).isEqualTo(1);
     }
 
     @Test
     public void has_a_size_of_zero_after_one_push_and_one_pop() {
-        // When
         stack.push(1);
         stack.pop();
 
-        // Then
         assertThat(stackSize()).isEqualTo(DEFAULT_STACK_SIZE_WHEN_CREATED);
     }
 
     @Test
     public void throw_stack_limit_passed_exception_when_pushed_passed_limit() {
-        // Given
         Stack stack = new Stack(0);
 
-        // When
         assertThatExceptionOfType(StackLimitPassedException.class)
                 .isThrownBy(() -> { stack.push(1); });
     }
 
     @Test
     public void throw_stack_underflow_exception_when_popped_passed_limit() {
-        // Given
         Stack stack = new Stack(0);
 
-        // When
         assertThatExceptionOfType(SteckUnderflowException.class).isThrownBy(stack::pop);
+    }
+
+    @Test
+    public void has_a_size_of_one_after_two_push_and_one_pop() {
+        stack.push(1);
+        stack.push(2);
+        stack.pop();
+
+        assertThat(stack.getSize()).isEqualTo(1);
     }
 
     private int stackSize() {
