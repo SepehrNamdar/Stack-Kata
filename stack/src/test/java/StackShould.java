@@ -1,3 +1,4 @@
+import com.soat.kata.IllegalCapacityException;
 import com.soat.kata.Stack;
 import com.soat.kata.StackLimitPassedException;
 import com.soat.kata.SteckUnderflowException;
@@ -80,6 +81,15 @@ public class StackShould {
         stack.pop();
         assertThat(stack.isEmpty());
     }
+
+    @Test
+    public void throw_illegal_capacity_exception_when_creating_stack_with_negative_size() {
+        assertThatExceptionOfType(IllegalCapacityException.class).isThrownBy(() -> { new Stack(-1); });
+    }
+
+    // FIXME : What if I do stack.top() with an empty stack ?
+
+    // FIXME : What if I do 3 push and 3 pop ?
 
     private int stackSize() {
         return stack.getSize();

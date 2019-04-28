@@ -9,6 +9,9 @@ public class Stack {
     private List<Integer> elements;
 
     public Stack(int stackLimit) {
+        if(stackLimit < 0) {
+            throw new IllegalCapacityException();
+        }
         this.stackLimit = stackLimit;
         elements = new ArrayList<>();
     }
