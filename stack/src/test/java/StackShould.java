@@ -22,6 +22,16 @@ public class StackShould {
 
     @Test
     public void has_a_size_of_one_after_one_push() {
+        stack.push(1);
+
         assertThat(stack.getSize()).isEqualTo(1);
+    }
+
+    @Test
+    public void be_empty_after_one_push_and_one_pop() {
+        stack.push(1);
+        stack.pop();
+
+        assertThat(stack.getSize()).isEqualTo(0);
     }
 }
